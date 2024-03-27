@@ -1,0 +1,21 @@
+name: Build and test
+on:
+  push:
+jobs:
+  build-project:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+
+      - name: Install dependencies
+        run: |
+          apt install valgrind
+
+      - name: Configure and Build Project
+        uses: threeal/cmake-action@main
+      
+      - name: Check for leaks
+        run: |
+          valgrind --leak-check=full --show-leak-kinds=all ./test
