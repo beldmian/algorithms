@@ -1,7 +1,9 @@
 #include "queue.h"
+#include "common.h"
 
 Queue *make_queue() {
   Queue *queue = malloc(sizeof(Queue));
+  ASSERT_PTR(queue);
   queue->start = NULL;
   queue->end = NULL;
   return queue;
