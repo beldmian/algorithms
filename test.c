@@ -14,11 +14,12 @@ void test_linked_list() {
     data[i] = i;
   }
   LinkedListNode *root = list_from_array(data, 10);
-  while (root != NULL) {
-    printf("%d\n", (int)root->value);
-    root = root->next;
-  }
+  LinkedListNode *iter_root = root;
   free(data);
+  while (iter_root != NULL) {
+    printf("%d\n", (int)iter_root->value);
+    iter_root = iter_root->next;
+  }
   free_list(root);
 }
 

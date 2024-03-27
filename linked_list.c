@@ -30,7 +30,9 @@ LinkedListNode *list_from_array(LIST_TYPE *array, size_t len) {
 
 void free_list(LinkedListNode *root) {
   if (root != NULL) {
-    free_list(root->next);
+    if (root->next != NULL) {
+      free_list(root->next);
+    }
     free(root);
   }
 }

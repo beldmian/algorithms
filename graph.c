@@ -45,6 +45,7 @@ void dfs(MatrixGraph *graph, GraphVisitor *visitor, size_t start) {
     visited[i] = 0;
   }
   dfs_loop(graph, visitor, start, visited);
+  free(visited);
 }
 
 void dfs_print(MatrixGraph *graph, size_t from, size_t to) {
