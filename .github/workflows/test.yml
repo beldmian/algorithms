@@ -18,4 +18,4 @@ jobs:
       
       - name: Check for leaks
         run: |
-          valgrind --leak-check=full --show-leak-kinds=all ./build/test
+          valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=-1 ./build/test
