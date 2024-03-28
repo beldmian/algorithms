@@ -2,15 +2,12 @@ cmake_minimum_required(VERSION 3.0)
 
 project(dsanda)
 
+add_subdirectory(lib)
 set(SOURCE_EXE test.c)
-set(SOURCE_LIB algorithms.c
-               linked_list.c
-               queue.c
-               stack.c
-               graph.c
-               binary_heap.c)
-
-add_library(mainlib STATIC ${SOURCE_LIB})
 
 add_executable(test ${SOURCE_EXE})
-target_link_libraries(test mainlib)
+target_link_libraries(test algorithms)
+target_include_directories(test PUBLIC
+                          "${PROJECT_BINARY_DIR}"
+                          "${PROJECT_SOURCE_DIR}/lib"
+                          )
